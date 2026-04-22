@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7498781725922005058}
   - component: {fileID: 7497076383626585608}
   m_Layer: 0
-  m_Name: resource2_rpgprotag_face_forward_0
+  m_Name: MC
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
