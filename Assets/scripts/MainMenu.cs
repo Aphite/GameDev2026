@@ -6,7 +6,10 @@ public class MainMenu : MonoBehaviour
     
     public void StartGame()
     {
-        SceneManager.LoadSceneAsync(1); // load the next scene at index 1 which should be level 1.
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // Load the next scene in the build index, which... should be the first level of the game.
+        // alternatively, could just specify the scene name or index directly
+        // SceneManager.LoadScene("Scene2"); // Load the scene by name
+        // SceneManager.LoadScene(2); // Load the scene by index. Better but build settings must be set up correctly ****
     }
 
     public void QuitGame()
