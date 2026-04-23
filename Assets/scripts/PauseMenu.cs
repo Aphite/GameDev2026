@@ -25,7 +25,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    // note, timescale can lead to unintended registered inputs that happen when time is frozen. will change this
+    // note, timescale can lead to unintended registered inputs that happen when time is frozen. will change this. May or may not change this actually...
     public void ResumeGame()
     {
         pauseMenuUI.SetActive(false); // hide the pause menu UI
