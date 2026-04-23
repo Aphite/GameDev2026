@@ -14,7 +14,7 @@ public class LoadScene2 : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            SceneManager.LoadScene("Scene2");
+            SceneManager.LoadScene(2); // load the scene at INDEX 2, instead of using the scene NAME. Just better this way.
         }
     }
     

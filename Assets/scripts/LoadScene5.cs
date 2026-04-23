@@ -14,7 +14,7 @@ public class LoadScene5 : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            SceneManager.LoadScene("Scene5");
+            SceneManager.LoadScene(5);
         }
     }
     
