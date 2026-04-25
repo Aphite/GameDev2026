@@ -21,7 +21,7 @@ public class BasicMovement : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(rayStart, Vector2.down, groundCheckDistance);
         bool grounded = hit.collider != null && hit.collider.gameObject != gameObject; // Ensure we don't detect ourselves
         Debug.DrawRay(rayStart, Vector2.down * groundCheckDistance, grounded ? Color.green : Color.red); // Visualize the raycast , the green line indicates grounded, red indicates not grounded
-        Debug.Log("IsGrounded: " + grounded);
+        // Debug.Log("IsGrounded: " + grounded);
         return grounded;
     }
 
