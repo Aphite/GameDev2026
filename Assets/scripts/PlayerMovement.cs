@@ -81,12 +81,17 @@ public class PlayerMovement : BasicMovement
         {
             rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, jumpForce);
             jumpRequested = false;
+            animator.SetTrigger("jump");
+            // Debug.Log("Jumped with force: " + jumpForce);
         }
 
 
 
         bool isMoving = force != Vector2.zero;
-        animator.SetBool("IsWalking", isMoving);
+        animator.SetBool("isWalking", isMoving);
+        animator.SetBool("isGrounded", IsGrounded());
+        
+        
 
         // Flip character based on movement direction
         if (force.x < 0)
@@ -103,6 +108,9 @@ public class PlayerMovement : BasicMovement
         rb2d.linearVelocity = new Vector2(force.x / Time.fixedDeltaTime, rb2d.linearVelocity.y);
 
     }//end Update
+
+
+
 
     
 }//end class
