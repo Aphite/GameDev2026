@@ -24,6 +24,7 @@ public class HealthBar : MonoBehaviour
     void UpdateBar()
     {
         fillImage.fillAmount = currentHealth / maxHealth;
+        
     }
 
 }
