@@ -3,7 +3,7 @@ using UnityEngine;
 public class Ladder : MonoBehaviour
 {
     private float vertical;
-    private float speed;
+    private float speed = 8f;
     private bool isLadder;
     private bool isClimbing;
 
@@ -32,5 +32,21 @@ public class Ladder : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ladder"))
+        {
+            isLadder = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ladder"))
+        {
+            isLadder = false;
+            isClimbing = false;
+        }
+    }
 
 }
