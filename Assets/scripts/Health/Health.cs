@@ -3,7 +3,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] private float maxHealth; // Maximum health value ... set to a value of 1-10!!! anything higher does not work as it is based on 10 hearts
-    public float currentHealth {get; private set;} // Current health value, with a public getter and private setter to control access
+    public float currentHealth {get; set;} // Current health value, with a public getter and private setter to control access.. Modified to public setter to allow the healthbuff scriptable object to modify the player's health
 
     private void Awake()
     {
@@ -26,10 +26,11 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void AddHealth(float amount)
-    {
-        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-    }
+    // Deprecated after adding the healthbuff scriptable object
+    // public void AddHealth(float amount)
+    // {
+    //     currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+    // }
 
     void Die()
     {

@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Powerups/BiggerJump")]
-public class Biggerjump : PowerupEffect
+[CreateAssetMenu(menuName = "Powerups/Speedbuff")]
+public class Speedbuff : PowerupEffect
 {
     public float amount;
 
@@ -10,7 +10,7 @@ public class Biggerjump : PowerupEffect
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
         if (playerMovement != null)
         {
-            playerMovement.jumpForce += amount;
+            playerMovement.speed += amount;
         }
     }
 }

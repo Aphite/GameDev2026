@@ -1,9 +1,13 @@
 using UnityEngine;
 
-public class Attackbuff : MonoBehaviour
+[CreateAssetMenu(menuName = "Powerups/Attackbuff")]
+public class Attackbuff : PowerupEffect
 {
-    public float amount;
+    public int amount;
 
-    // public override void apply 
+    public override void ApplyEffect(GameObject player)
+    {
+        player.GetComponent<PlayerAttack>().damageAmount += amount; 
+    }
 
 }
