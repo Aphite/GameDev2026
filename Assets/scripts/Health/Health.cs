@@ -22,12 +22,18 @@ public class Health : MonoBehaviour
         {
             // Plauer dead
             Debug.Log("Player died!");
+            Die();
         }
     }
 
     public void AddHealth(float amount)
     {
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+    }
+
+    void Die()
+    {
+        Destroy(gameObject); // Remove the player from the scene
     }
 
 

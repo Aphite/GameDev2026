@@ -4,8 +4,10 @@ public class PlayerAttack : MonoBehaviour
 {
     public Animator animator;
     public Transform attackPoint;
-    public float attackRange = 0.5f;
     public LayerMask enemyLayers;
+
+    public float attackRange = 0.5f;
+    public int damageAmount = 2;
 
     private SpriteRenderer spriteRenderer;
     private float defaultAttackPointX;
@@ -41,7 +43,7 @@ public class PlayerAttack : MonoBehaviour
         {
             Debug.Log("Hit " + enemy.name);
             // Here you would typically call a method on the enemy to apply damage, e.g.:
-            // enemy.GetComponent<EnemyHealth>().TakeDamage(damageAmount);
+            enemy.GetComponent<Enemy>().TakeDamage(damageAmount);
         }
     }
 
