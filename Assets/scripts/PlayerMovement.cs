@@ -4,7 +4,9 @@ public class PlayerMovement : BasicMovement
 {
     public float speed = 2f;
     public float jumpForce = 10f;
+    public float slideSpeedMultiplier = 1.5f;
     bool jumpRequested = false;
+    bool isSliding = false;
 
     private float coyoteTime = 0.2f; // Time after leaving a platform during which a jump is still allowed
     private float coyoteTimeCounter = 0f; // Counter to track coyote time
@@ -71,6 +73,30 @@ public class PlayerMovement : BasicMovement
             force.x += -speed * Time.fixedDeltaTime;
         }//end if
 
+        // SLIDING
+        bool slideHeld = Input.GetKey(KeyCode.DownArrow) && IsGrounded();
+        if (slideHeld)
+        {
+            if (force.x == 0f && lastMovementDirection.x != 0f)
+            {
+                force.x = lastMovementDirection.x * speed * Time.fixedDeltaTime;
+            }
+
+            if (force.x != 0f)
+            {
+                force.x *= slideSpeedMultiplier;
+                isSliding = true;
+            }
+            else
+            {
+                isSliding = false;
+            }
+        }
+        else
+        {
+            isSliding = false;
+        }
+
         // SPEED BOOST
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -85,10 +111,9 @@ public class PlayerMovement : BasicMovement
             // Debug.Log("Jumped with force: " + jumpForce);
         }
 
-
-
         bool isMoving = force != Vector2.zero;
-        animator.SetBool("isWalking", isMoving);
+        animator.SetBool("isWalking", isMoving && !isSliding);
+        animator.SetBool("isSliding", isSliding);
         animator.SetBool("isGrounded", IsGrounded());
         
         
