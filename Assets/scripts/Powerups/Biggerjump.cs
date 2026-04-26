@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class Biggerjump : PowerupEffect
+public class Biggerjump : MonoBehaviour
 {
-
     
 
 }
