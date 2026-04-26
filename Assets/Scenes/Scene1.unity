@@ -1621,6 +1621,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10571a70534b52644831322205b162bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 8008329124889617642}
+--- !u!95 &8008329124889617642 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7497076383626585608, guid: 4dcc65992ebdd344ca9af227391b1f7b, type: 3}
+  m_PrefabInstance: {fileID: 5472845323886894600}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8281134162020829297
 PrefabInstance:
   m_ObjectHideFlags: 0
