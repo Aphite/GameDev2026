@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         Debug.Log(gameObject.name + " has died.");
+        StatsTracker.Instance?.AddEnemyKill(); // Increment the enemy kill count in StatsTracker
         Destroy(gameObject); // Remove the enemy from the scene
     }
     

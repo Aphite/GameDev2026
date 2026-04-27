@@ -9,7 +9,8 @@ public class Collectable : MonoBehaviour
             if (GameManager.Instance != null)
             {
                 GameManager.Instance.AddScore();
-                Debug.Log("Coin picked up! Total Score: " + GameManager.Instance.score);
+                StatsTracker.Instance?.AddItemPickup(); // Increment the item pickup count in StatsTracker
+                Debug.Log("Collectible picked up! Pickup Score: " + GameManager.Instance.score);
             }
             Destroy(gameObject);
         }
