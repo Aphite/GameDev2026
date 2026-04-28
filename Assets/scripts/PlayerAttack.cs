@@ -44,6 +44,8 @@ public class PlayerAttack : MonoBehaviour
             Debug.Log("Hit " + enemy.name);
             // Here you would typically call a method on the enemy to apply damage, e.g.:
             enemy.GetComponent<Enemy>().TakeDamage(damageAmount);
+            StatsTracker.Instance?.AddDamageDealt(damageAmount);
+ 
         }
     }
 

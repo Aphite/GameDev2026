@@ -33,7 +33,21 @@ public class GameManager : MonoBehaviour
             goalsReached++;
 
         if (goalsReached >= goalsToWin)
+        {
             playerWon = true;
+    
+            // Stop the timer when the player wins
+            StatsTracker.Instance?.PauseTracking();
+    
+            // Save the run to the leaderboard
+            if (LeaderboardManager.Instance != null && StatsTracker.Instance != null)
+            {
+                // "Player" is the default name — swap for a name-entry UI later if desired
+                LeaderboardEntry entry = StatsTracker.Instance.BuildEntry("Player");
+                LeaderboardManager.Instance.SaveEntry(entry);
+            }
+        }
+
     }
 
     public void ResetGame()
