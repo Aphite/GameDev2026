@@ -102,6 +102,7 @@ public class LeaderboardManager : MonoBehaviour
             data = loaded;
             SortEntries(); // Ensure order is correct on load
             Debug.Log($"[LeaderboardManager] Loaded {data.entries.Count} entries from disk.");
+            Debug.Log("File Path: " + FilePath);
         }
         else
         {

@@ -79,7 +79,6 @@ public class PlayerMovement : BasicMovement
             {
                 force.x *= slideSpeedMultiplier;
                 isSliding = true;
-                stamina?.DrainStamina(); // Drain stamina whijle sliding
             }
             else
             {
@@ -94,13 +93,14 @@ public class PlayerMovement : BasicMovement
         // SPRINT - requires stamina
         bool sprintHeld = Input.GetKey(KeyCode.LeftShift);
         bool canSprint = stamina == null || stamina.HasStamina(); // if stamina is not null, check if there is stamina left
+        bool isSprinting = sprintHeld && canSprint && force != Vector2.zero; // Only sprint if there is movement input
 
+        if (isSprinting)
+            force *= 2f;
 
-        if (sprintHeld && canSprint)
-        {
-            force *= 2f; // Increase speed by 100% when Left Shift is held
-            stamina?.DrainStamina(); // Drain stamina while sprinting
-        }
+        // Drain stamina
+        bool shouldDrain = isSprinting || isSliding;
+        stamina?.SetDraining(shouldDrain);
 
         if (jumpRequested)
         {

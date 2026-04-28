@@ -32,15 +32,12 @@ public class Stamina : MonoBehaviour
             {
                 CurrentStamina = Mathf.Clamp(CurrentStamina + regenRate * Time.deltaTime, 0f, maxStamina);
             }
-
-            isDraining = false; // Reset draining state each frame, will be set to true if DrainStamina is called
         }
-
     }
 
-    public void DrainStamina() // Call this method to start draining stamina
+    public void SetDraining(bool draining) // Call this method to start draining stamina
     {
-        isDraining = true;
+        isDraining = draining;
     }
 
     public bool HasStamina() // Check if there is any stamina left
