@@ -10,15 +10,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1337707959110708754, guid: b852480fce35fde4c9efebf1da0c43d6, type: 3}
       propertyPath: m_Name
-      value: goal_0 Variant Variant
+      value: Goal Scene Changer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817564018128307661, guid: b852480fce35fde4c9efebf1da0c43d6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817564018128307661, guid: b852480fce35fde4c9efebf1da0c43d6, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1763219773
       objectReference: {fileID: 0}
     - target: {fileID: 8692875430250815064, guid: b852480fce35fde4c9efebf1da0c43d6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.407
+      value: 50.16
       objectReference: {fileID: 0}
     - target: {fileID: 8692875430250815064, guid: b852480fce35fde4c9efebf1da0c43d6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.222
+      value: 6.16
       objectReference: {fileID: 0}
     - target: {fileID: 8692875430250815064, guid: b852480fce35fde4c9efebf1da0c43d6, type: 3}
       propertyPath: m_LocalPosition.z

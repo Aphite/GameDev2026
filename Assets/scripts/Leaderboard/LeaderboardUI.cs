@@ -36,6 +36,7 @@ public class LeaderboardUI : MonoBehaviour
             row.transform.Find("ItemsText").GetComponent<TMP_Text>().text  = e.itemsPickedUp.ToString();
             row.transform.Find("EggsText").GetComponent<TMP_Text>().text   = e.easterEggsFound.ToString();
             row.transform.Find("TimeText").GetComponent<TMP_Text>().text   = e.FormattedTime();
+            row.transform.Find("DateText").GetComponent<TMP_Text>().text   = e.date;
         }
     }
 

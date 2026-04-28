@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8579955582462179929}
   - component: {fileID: 3200490380159708203}
   - component: {fileID: 6812952279219669754}
+  - component: {fileID: 78767689812841371}
   m_Layer: 0
   m_Name: Red Fih Minor Attack
   m_TagString: Untagged
@@ -148,3 +149,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: {fileID: 11400000, guid: f92903160abef004aa58d64c61ba061b, type: 2}
+--- !u!114 &78767689812841371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3539867836978168302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 842ab9e4d661ab944b6d2969a812aa05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

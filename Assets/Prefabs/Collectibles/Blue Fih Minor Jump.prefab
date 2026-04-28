@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6906665363611174089}
   - component: {fileID: 7351496850638973871}
   - component: {fileID: 1859081203835070717}
+  - component: {fileID: 2702210572426436694}
   m_Layer: 11
   m_Name: Blue Fih Minor Jump
   m_TagString: Untagged
@@ -148,3 +149,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: {fileID: 11400000, guid: c4fcd5640082af94486a6f63dc886854, type: 2}
+--- !u!114 &2702210572426436694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5969178413591397127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 842ab9e4d661ab944b6d2969a812aa05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
