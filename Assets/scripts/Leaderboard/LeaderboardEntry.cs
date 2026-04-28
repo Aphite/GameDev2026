@@ -2,7 +2,7 @@ using UnityEngine;
 using System;
 
 [Serializable]
-public class LeaderboardEntry : MonoBehaviour
+public class LeaderboardEntry
 {
     public string playerName;
     public int    score;
