@@ -7195,6 +7195,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UICanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3456726379080292166, guid: 475ca9882d3a2644191458fe35d2e281, type: 3}
+      propertyPath: playerStamina
+      value: 
+      objectReference: {fileID: 8008329124889617641}
     - target: {fileID: 4212695168778058768, guid: 475ca9882d3a2644191458fe35d2e281, type: 3}
       propertyPath: playerStamina
       value: 
@@ -7279,6 +7283,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7851375767791823520, guid: 475ca9882d3a2644191458fe35d2e281, type: 3}
+      propertyPath: playerHealth
+      value: 
+      objectReference: {fileID: 8008329124889617640}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

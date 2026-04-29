@@ -19,6 +19,7 @@ public class GoalTrigger : MonoBehaviour
             triggered = true;
             if (GameManager.Instance != null)
             {
+                GameManager.Instance.AddScore(); // Increment the score upon reaching a goal. Reaching a goal progresses a level, updating score. 
                 GameManager.Instance.ReachGoal();
                 Debug.Log("Goal reached! Total: " + GameManager.Instance.goalsReached);
             }

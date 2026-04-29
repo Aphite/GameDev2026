@@ -8,7 +8,7 @@ public class Collectable : MonoBehaviour
         {
             if (GameManager.Instance != null)
             {
-                GameManager.Instance.AddScore();
+                // GameManager.Instance.AddScore(); // Commented out. Collectables no longer increment score, Levels progress increment score now!
                 StatsTracker.Instance?.AddItemPickup(); // Increment the item pickup count in StatsTracker
                 Debug.Log("Item picked up! Items picked up: " + GameManager.Instance.score);
             }
