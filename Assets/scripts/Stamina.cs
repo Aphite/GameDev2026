@@ -11,6 +11,8 @@ public class Stamina : MonoBehaviour
     
     private float regenTimer = 0f; // Timer to track when to start regenerating stamina
     private bool isDraining = false;
+    private float drainMultiplier = 1f;
+    private float regenMultiplier = 1f;
 
     void Awake()
     {
@@ -21,7 +23,7 @@ public class Stamina : MonoBehaviour
     {
         if (isDraining)
         {
-            CurrentStamina = Mathf.Clamp(CurrentStamina - drainRate * Time.deltaTime, 0f, maxStamina);
+            CurrentStamina = Mathf.Clamp(CurrentStamina - drainRate * drainMultiplier * Time.deltaTime, 0f, maxStamina);
             regenTimer = regenDelay; // Reset regen timer when draining
         } else
         {
@@ -30,15 +32,22 @@ public class Stamina : MonoBehaviour
                 regenTimer -= Time.deltaTime;
             } else
             {
-                CurrentStamina = Mathf.Clamp(CurrentStamina + regenRate * Time.deltaTime, 0f, maxStamina);
+                CurrentStamina = Mathf.Clamp(CurrentStamina + regenRate * regenMultiplier * Time.deltaTime, 0f, maxStamina);
             }
         }
     }
 
-    public void SetDraining(bool draining) // Call this method to start draining stamina
+    public void SetDraining(bool draining, float multiplier = 1f) // Call this method to start draining stamina
     {
         isDraining = draining;
+        drainMultiplier = multiplier;
     }
+
+    public void SetRegenMultiplier(float multiplier)
+    {
+        regenMultiplier = multiplier;
+    }
+
 
     public bool HasStamina() // Check if there is any stamina left
     {

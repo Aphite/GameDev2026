@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PlayerMovement : BasicMovement
 {
-    public float speed = 2f;
+    public float speed = 5f;
     public float jumpForce = 10f;
-    public float slideSpeedMultiplier = 1.5f;
+    public float slideSpeedMultiplier = 3f;
     bool jumpRequested = false;
     bool isSliding = false;
 
@@ -96,11 +96,21 @@ public class PlayerMovement : BasicMovement
         bool isSprinting = sprintHeld && canSprint && force != Vector2.zero; // Only sprint if there is movement input
 
         if (isSprinting)
-            force *= 2f;
+            force *= 1.5f;
 
         // Drain stamina
-        bool shouldDrain = isSprinting || isSliding;
-        stamina?.SetDraining(shouldDrain);
+        // bool shouldDrain = isSprinting || isSliding;
+        // stamina?.SetDraining(shouldDrain);
+        if (isSliding)
+            stamina?.SetDraining(true, 3f);
+        else if (isSprinting)
+            stamina?.SetDraining(true, 1f);
+        else
+            stamina?.SetDraining(false);
+
+        // Double stamina regen if standing still
+        bool isStill = force == Vector2.zero && IsGrounded();
+        stamina?.SetRegenMultiplier(isStill ? 2f : 1f);
 
         if (jumpRequested)
         {

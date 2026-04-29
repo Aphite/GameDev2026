@@ -112,7 +112,7 @@ MonoBehaviour:
   groundCheckDistance: 0.1
   speed: 5
   jumpForce: 10
-  slideSpeedMultiplier: 1.5
+  slideSpeedMultiplier: 3
 --- !u!61 &8008329124466068346
 BoxCollider2D:
   m_ObjectHideFlags: 0
