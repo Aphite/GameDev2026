@@ -11,6 +11,7 @@ public class Biggerjump : PowerupEffect
         if (playerMovement != null)
         {
             playerMovement.jumpForce += amount;
+            Debug.Log("Biggerjump applied: +" + amount + " jump force. New jump force: " + playerMovement.jumpForce);
         }
     }
 }

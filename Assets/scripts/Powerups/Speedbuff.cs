@@ -11,6 +11,7 @@ public class Speedbuff : PowerupEffect
         if (playerMovement != null)
         {
             playerMovement.speed += amount;
+            Debug.Log("Speedbuff applied: +" + amount + " speed. New speed: " + playerMovement.speed);
         }
     }
 }

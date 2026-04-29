@@ -7,6 +7,8 @@ public class Healthbuff : PowerupEffect
 
     public override void ApplyEffect(GameObject player)
     {
-        player.GetComponent<Health>().currentHealth += amount;
+        Health health = player.GetComponent<Health>();
+        health.currentHealth += amount;
+        Debug.Log("Healthbuff applied: +" + amount + " health. New health: " + health.currentHealth);
     }
 }

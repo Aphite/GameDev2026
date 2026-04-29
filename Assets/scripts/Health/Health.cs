@@ -38,13 +38,13 @@ public class Health : MonoBehaviour
     }
 
 
-    private void Update()
-    {
-        // // For testing purposes, space to deal damage to the player
-        // if (Input.GetKeyDown(KeyCode.Space))
-        // {
-        //     TakeDamage(1f); // Take 1 damage when space is pressed
-        // }
-    }
+    // private void Update()
+    // {
+    //     // For testing purposes, space to deal damage to the player
+    //     if (Input.GetKeyDown(KeyCode.Space))
+    //     {
+    //         TakeDamage(1f); // Take 1 damage when space is pressed
+    //     }
+    // }
 
 }
