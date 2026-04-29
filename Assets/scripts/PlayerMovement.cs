@@ -16,13 +16,14 @@ public class PlayerMovement : BasicMovement
     Animator animator;
 
     SpriteRenderer spriteRenderer;
+    Stamina stamina;
 
     void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-    
+        stamina = GetComponent<Stamina>(); // Gets the stamina component attached to the player
     }
 
     void Update()
@@ -54,16 +55,6 @@ public class PlayerMovement : BasicMovement
     {
         Vector2 force = Vector2.zero;
 
-        // Not needed after adding gravity and jump
-        // if (Input.GetKey(KeyCode.UpArrow))
-        // {
-        //     force.y += speed * Time.fixedDeltaTime;
-        // }//end if
-        // if (Input.GetKey(KeyCode.DownArrow))
-        // {
-        //     force.y += -speed * Time.fixedDeltaTime;
-        // }//end if
-
         if (Input.GetKey(KeyCode.RightArrow))
         {
             force.x += speed * Time.fixedDeltaTime;
@@ -73,9 +64,11 @@ public class PlayerMovement : BasicMovement
             force.x += -speed * Time.fixedDeltaTime;
         }//end if
 
-        // SLIDING
+        // SLIDING - requires stamina and being grounded, also needs to be moving in a direction (not sliding in place)
         bool slideHeld = Input.GetKey(KeyCode.DownArrow) && IsGrounded();
-        if (slideHeld)
+        bool canSlide = stamina == null || stamina.HasStamina(); // if stamina is not null, check if there is stamina left 
+
+        if (slideHeld && canSlide)
         {
             if (force.x == 0f && lastMovementDirection.x != 0f)
             {
@@ -97,11 +90,17 @@ public class PlayerMovement : BasicMovement
             isSliding = false;
         }
 
-        // SPEED BOOST
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            force *= 2f; // Increase speed by 100% when Left Shift is held
-        }
+        // SPRINT - requires stamina
+        bool sprintHeld = Input.GetKey(KeyCode.LeftShift);
+        bool canSprint = stamina == null || stamina.HasStamina(); // if stamina is not null, check if there is stamina left
+        bool isSprinting = sprintHeld && canSprint && force != Vector2.zero; // Only sprint if there is movement input
+
+        if (isSprinting)
+            force *= 2f;
+
+        // Drain stamina
+        bool shouldDrain = isSprinting || isSliding;
+        stamina?.SetDraining(shouldDrain);
 
         if (jumpRequested)
         {
@@ -111,13 +110,12 @@ public class PlayerMovement : BasicMovement
             // Debug.Log("Jumped with force: " + jumpForce);
         }
 
+        // For animator
         bool isMoving = force != Vector2.zero;
         animator.SetBool("isWalking", isMoving && !isSliding);
         animator.SetBool("isSliding", isSliding);
         animator.SetBool("isGrounded", IsGrounded());
         
-        
-
         // Flip character based on movement direction
         if (force.x < 0)
         {
@@ -129,13 +127,6 @@ public class PlayerMovement : BasicMovement
         }
 
         setLastMovementDirection(force);
-        
         rb2d.linearVelocity = new Vector2(force.x / Time.fixedDeltaTime, rb2d.linearVelocity.y);
-
     }//end Update
-
-
-
-
-    
 }//end class

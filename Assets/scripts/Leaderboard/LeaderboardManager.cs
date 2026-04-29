@@ -34,12 +34,14 @@ public class LeaderboardManager : MonoBehaviour
     {
         data.entries.Add(entry);
         SortEntries();
-        TrimEntries();
+        // TrimEntries(); commented out, so that it doesn't trim entries and saves every session
         SaveToDisk();
  
         int rank = data.entries.IndexOf(entry) + 1;  // +1 for 1-based rank
         Debug.Log($"[LeaderboardManager] Entry saved. Rank: {rank} | Score: {entry.score}");
-        return rank <= maxEntries ? rank : -1;
+        
+        // return rank <= maxEntries ? rank : -1;
+        return rank;
     }
 
     // Returns a copy of the current leaderboard entries
@@ -102,6 +104,7 @@ public class LeaderboardManager : MonoBehaviour
             data = loaded;
             SortEntries(); // Ensure order is correct on load
             Debug.Log($"[LeaderboardManager] Loaded {data.entries.Count} entries from disk.");
+            Debug.Log("File Path: " + FilePath);
         }
         else
         {
