@@ -28,8 +28,5 @@ public class EnemyPatrol : MonoBehaviour
             if (spriteRenderer != null)
                 spriteRenderer.flipX = direction < 0;
         }
-
     }
-
-
 }
