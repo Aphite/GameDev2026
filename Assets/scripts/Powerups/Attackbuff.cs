@@ -7,7 +7,9 @@ public class Attackbuff : PowerupEffect
 
     public override void ApplyEffect(GameObject player)
     {
-        player.GetComponent<PlayerAttack>().damageAmount += amount; 
+        PlayerAttack playerAttack = player.GetComponent<PlayerAttack>();
+        playerAttack.damageAmount += amount;
+        Debug.Log("Attackbuff applied: +" + amount + " damage. New damage: " + playerAttack.damageAmount);
     }
 
 }
