@@ -15,8 +15,10 @@ public class ScoreDisplay : MonoBehaviour
  
         string label = "Score: " + GameManager.Instance.score;
  
-        // when the player reaches scene3, show final score message
-        if (SceneManager.GetActiveScene().name == "Scene3")
+        // check if final scene
+        bool isFinalScene = SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings -1;
+
+        if (isFinalScene)
         {
             label = "Final Score: " + GameManager.Instance.score;
             label += "\nTouch the goal to end the run!";

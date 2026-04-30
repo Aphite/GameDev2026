@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GoalTrigger : MonoBehaviour
 {
@@ -31,7 +32,9 @@ public class GoalTrigger : MonoBehaviour
     // display the message only when the player wins
     void OnGUI()
     {
-        if (GameManager.Instance != null && GameManager.Instance.playerWon)
+        bool isFinalScene = SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 1;
+
+        if (isFinalScene && triggered && GameManager.Instance != null && GameManager.Instance.playerWon)
         {
             GUIStyle style = new GUIStyle();
             style.fontSize = 48;
