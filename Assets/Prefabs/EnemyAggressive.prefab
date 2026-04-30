@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 7498781725922005058}
   - component: {fileID: 7497076383626585608}
   - component: {fileID: 4845500883101810434}
-  - component: {fileID: 8662364795622835447}
+  - component: {fileID: 7985373344808645900}
   m_Layer: 11
-  m_Name: Enemy
+  m_Name: EnemyAggressive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
---- !u!114 &8662364795622835447
+--- !u!114 &7985373344808645900
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -210,11 +210,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 938161371215554966}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b6f4f2b6a7e1f04088b85588e714460, type: 3}
+  m_Script: {fileID: 11500000, guid: 86ee6b832c309494fbecf166cc71e120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.5
-  patrolDistance: 3
+  speed: 2.5
+  detectionRange: 6
+  attackRange: 0.8
+  attackDamage: 1
+  attackCooldown: 1.2
 --- !u!1 &5479531081720029970
 GameObject:
   m_ObjectHideFlags: 0

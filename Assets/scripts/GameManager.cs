@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 
     public int score = 0;
     public int goalsReached = 0;
-    public int goalsToWin = 3;
+    public int goalsToWin = 4;
     public bool playerWon = false;
 
     void Awake()
