@@ -7,20 +7,22 @@ public class ScoreDisplay : MonoBehaviour
     {
         if (GameManager.Instance == null)
             return;
-
+ 
         GUIStyle style = new GUIStyle();
         style.fontSize = 26;
         style.normal.textColor = Color.white;
-
+        style.alignment = TextAnchor.UpperCenter;
+ 
         string label = "Score: " + GameManager.Instance.score;
-
+ 
         // when the player reaches scene3, show final score message
         if (SceneManager.GetActiveScene().name == "Scene3")
         {
             label = "Final Score: " + GameManager.Instance.score;
-            label += "\nTouch the goal to win!";
+            label += "\nTouch the goal to end the run!";
         }
-
-        GUI.Label(new Rect(10, 10, 300, 30), label, style);
+ 
+        // Centered under the timer (timer sits at y=10, this sits below it at y=50)
+        GUI.Label(new Rect(Screen.width / 2 - 100, 50, 200, 40), label, style);
     }
 }
